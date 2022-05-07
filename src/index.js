@@ -1,4 +1,4 @@
-import { navbar, footer } from "../components/logedinNav.js"
+import { navbar, footer } from "../components/logedinNav.js";
 
 
 
