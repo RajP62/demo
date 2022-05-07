@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            color: #333333;
+            font-family: sans-serif;
+        }
+
+
+        #TopNav {
+            width: 100%;
+            height: 25px;
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        #midNav {
+            width: 100%;
+            height: 70px;
+            display: flex;
+
+            justify-content: space-around;
+            /* border: 1px solid gray; */
+        }
+
+        /* #bottomNav {
+            width: 100%;
+            height: 35px;
+            background-color: #333333
+        } */
+
+        #country {
+            height: 25px;
+            border: none;
+            text-decoration: underline;
+
+
+        }
+
+        #country:hover {
+            border: none;
+            height: 25px;
+            background-color: #f3f3f3;
+            text-decoration: none
+        }
+
+
+        #CustomerCare {
+            width: 150px;
+            height: 25px;
+            border: none;
+            background: none;
+            text-decoration: underline;
+
+
+        }
+
+        #CustomerCare:hover {
+            width: 150px;
+            height: 25px;
+            background-color: #f3f3f3;
+            border: none;
+            text-decoration: none;
+
+        }
+
+        #topNavLeft {
+            width: 400px;
+            height: 25px;
+            /* border: 1px solid gray; */
+            justify-content: center;
+            display: flex;
+        }
+
+        #topNavRight {
+            width: 400px;
+            height: 25px;
+            /* border: 1px solid gray; */
+            display: flex;
+            justify-content: right;
+            gap: 20px
+        }
+
+        .fontSize {
+            font-size: 11.2px;
+            font-weight: bold;
+            font-family: sans-serif;
+            color: rgb(88, 85, 85);
+
+
+        }
+
+        /* .fontSize:hover{
+   
+    height: 25px;
+    background-color: #f3f3f3;
+    text-decoration: none;
+
+
+} */
+        #topNavRight>span:hover {
+            height: 25px;
+            background-color: #f3f3f3;
+            text-decoration: none;
+        }
+
+        #topNavRight>span>a:hover {
+            text-decoration: none;
+
+        }
+
+
+        #midNavleft {
+            width: 350px;
+            height: 50px;
+            /* border: 1px solid blue; */
+            display: flex;
+            gap: 20px;
+            justify-content: space-around;
+            padding-top: 20px;
+        }
+
+        #midNavMid {
+            width: 350px;
+            height: 50px;
+            /* border: 1px solid blue; */
+            display: block;
+            text-align: center;
+            padding-top: 5px;
+
+        }
+
+        #midNavRight {
+            height: 50px;
+            width: 350px;
+            display: flex;
+            justify-content: space-evenly;
+
+            /* border: 1px solid blue; */
+            padding-top: 20px;
+        }
+
+        .hoveringPages {
+            color: black;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+
+
+        }
+
+        /* #bottomNav {
+            width: 100%;
+            height: 40px;
+            background-color: #333333;
+
+
+
+        } */
+
+
+        .hoveringPages:hover {
+
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6UMRWRYgkMKy5MqRVXEcwZ5v0qDjvJNxt0g&usqp=CAU")
+        }
+
+        #marginNavBottom>a {
+            color: white;
+
+
+            font-size: 13px;
+            font-weight: 400;
+            text-decoration: none;
+            margin-right: 10px;
+
+        }
+
+        #marginNavBottom {
+
+            text-align: center;
+            margin-left: 20px;
+        }
+
+
+
+
+        /* body */
+        #registargrayBox {
+            width: 100%;
+            height: 200px;
+            background-color: #f3f3f3;
+            margin-bottom: 50px;
+            text-align: center;
+
+        }
+
+        a {
+            color: black;
+        }
+
+
+
+
+        #signupDiv {
+            width: 400px;
+
+            height: auto;
+            /* border: 1px solid red; */
+            padding: 20px;
+            margin: auto;
+
+        }
+
+
+
+        #facebookIcon {
+            width: 400px;
+            height: 50px;
+            background-color: #3f51b5;
+            border: 1px solid gray;
+            margin-bottom: 20px;
+
+        }
+
+        #facebookIcon>img {
+            margin: auto;
+            display: block;
+        }
+
+        #googleIcon>img {
+            margin: auto;
+            display: block;
+
+        }
+
+        #googleIcon {
+            width: 400px;
+            height: 50px;
+            /* background-color:#3f51b5 ; */
+            border: 0.1px solid gray;
+
+
+
+        }
+
+
+        .signupInputdiv>input {
+            width: 391px;
+            height: 40px;
+            background-color: #f6f6f6;
+            margin-top: 20px;
+            border: none;
+
+        }
+
+
+
+        /* signupform */
+        #footerRadioFlex {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+
+
+
+        }
+
+        #DOB {
+            width: 391px;
+            height: 40px;
+        }
+
+
+        #termConditionSection {
+            width: 100%;
+            height: 200px;
+            display: flex;
+        }
+
+        #CheckBoxRegister {
+            width: 50px;
+
+        }
+
+        #RegisterBtn {
+            width: 400px;
+            height: 50px;
+            border: none;
+            background-color: #333333;
+            color:white;
+            font-size: 17px;
+        }
+
+        #footerBottom{
+            background-color:  #333333;
+            width: 100%;
+            height: 100px;
+          
+        }
+
+        #footerBottom>p {
+            color: white;
+            font-size: 13px;
+            text-align: center;
+            margin: 10px;
+
+
+
+        }
+
+
+        #footerBottom:nth-child(1) {
+            margin-top: 20px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar">
+        <!-- <div id="TopNav">
+            <div id="topNavLeft">
+                <select name="India" id="country" class="fontSize">
+                    <option value="" class="fontSize"> INDIA</option>
+                </select>
+                <button id="CustomerCare" class="fontSize"> CUSTOMER CARE</button>
+
+            </div>
+
+            <div id="topNavRight">
+                <span id="topNavRightSpan"><svg xmlns="http://www.w3.org/2000/svg" width="12 " height="12"
+                        fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                    </svg> <a class="fontSize" href="">REGISTER</a> </span>
+                <span> <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+                        class="bi bi-unlock-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z" />
+                    </svg><a class="fontSize" href="./login.html">LOGIN</a></span>
+
+            </div>
+        </div>
+        <hr>
+        <div id="midNav">
+            <div id="midNavleft">
+                <a class="hoveringPages" href="" id="WomenPageBtn">WOMEN</a>
+                <a class="hoveringPages" href="" id="MenPageBtn">MEN</a>
+                <a class="hoveringPages" href="" id="KidpageBtn">KIDS</a>
+                <div> /</div>
+                <a class="hoveringPages" href="" id="DesignArtBtn"> DESIGN+ART</a>
+
+            </div>
+            <div id="midNavMid">
+
+                <img src="./image/yooxLogo.png" alt="">
+            </div>
+            <div id="midNavRight">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
+                </svg>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-bag-dash" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M5.5 10a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5z" />
+                    <path
+                        d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+                </svg>
+            </div>
+
+        </div> -->
+    </div>
+    <div id="registargrayBox">
+        <hr style="border: 4px  dashed rgb(37, 37, 37);" />
+        <h3>MYOOX </h3>
+        <p> REGISTRATION</p>
+        <p> Take advantage of a faster checkout and enjoy promotions for registered customers only </p>
+        <a href=""> Discover all the benefits</a>
+
+
+    </div>
+
+    <div id="signupDiv">
+        <form action="" id="formSubmit">
+            <p>REGISTER WITH YOUR SOCIAL MEDIA ACCOUNT</p>
+            <div id="facebookIcon">
+                <img src="./image/facebook.png" alt="">
+            </div>
+            <div id="googleIcon">
+                <img class="img-thumbnail" src="./image/google.png" alt="">
+            </div>
+            <p>OR WITH YOUR EMAIL </p>
+
+            <div class="signupInputdiv">
+                <input type="text" placeholder="FIRST NAME*" id="name">
+                <input type="text" placeholder="LAST NAME*" id="surname">
+                <input type="email" placeholder="E-MAIL*" id="email">
+                <input type="password" placeholder="PASSWORD*" id="pass">
+            </div>
+            <p style="text-align: left;">Personalize your shopping experience.</p>
+            <div id="footerRadioFlex">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                        value="women">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Women
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" style="color:black" type="radio" name="flexRadioDefault"
+                        id="flexRadioDefault2" value="man" checked>
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Man
+                    </label>
+
+
+                </div>
+
+            </div>
+            <p style="font-size: 12px;">If you are over 18 years old, celebrate your birthday with us: We have a
+                surprise for you.</p>
+            <div class="signupInputdiv">
+                <input type="date" placeholder="Date of Birth" id="DOB">
+            </div>
+            <p> CELL PHONE</p>
+            <div class="signupInputdiv">
+
+                <input type="number" placeholder="Phone Number" id="phone">
+                <p style="font-size: 12px;margin: 0px;">By entering your phone number, you agree to be contacted by SMS
+                    for marketing and promotional purposes.</p>
+
+            </div>
+            <div id="termConditionSection">
+                <input style="width: 30%; height: 30%;" type="checkbox" id="checkbox">
+                <p style="text-align:justify; margin-top: 25px;">I agree to the use of my personal data in order to be
+                    updated on new arrivals, informed about
+                    exclusive items and contacted as part of targeted marketing initiatives related to services
+                    offered by YOOX.
+                    By analyzing my personal data, order history and browsing habits, YOOX can improve my shopping
+                    experience with suggestions that correspond to my interests.
+                    For further information, please consult the Privacy Policy.</p>
+
+            </div>
+            <input type="submit" id="RegisterBtn">
+
+
+
+
+        </form>
+
+
+    </div>
+    <hr style="border: 4px  dashed rgb(37, 37, 37);" />
+   
+        <div id="footerBottom">
+            <p>POWERED BY YOOX NET-A-PORTER GROUP - COPYRIGHT © 2000-2022 YOOX NET-A-PORTER GROUP S.P.A. - ALL RIGHTS
+                RESERVED - SIAE LICENCE # 401/I/526</p>
+            <p> LEGAL AREA / PRIVACY POLICY</p>
+            </div>
+
+    
+
+</body>
+
+</html>
+<script>
+    document.getElementById("formSubmit").addEventListener("submit", signupInfo)
+
+    function signupInfo(event) {
+
+        event.preventDefault();
+        // console.log("raj")
+
+        var signupArr = JSON.parse(localStorage.getItem("YooxSignUpData")) || []
+
+
+
+
+        // signupArr.map(function (elem, index, arr) {
+        //    console.log(raj);
+
+
+        // })
+        var infoObj = {
+            name: document.querySelector("#name").value,
+            surname: document.querySelector("#surname").value,
+            email: document.querySelector("#email").value,
+            pass: document.querySelector("#pass").value,
+            DOB: document.querySelector("#DOB").value,
+        }
+
+
+        signupArr.push(infoObj);
+
+
+        console.log(signupArr);
+
+        localStorage.setItem("YooxSignUpData", JSON.stringify(signupArr));
+
+        document.querySelector("#name").value = ""
+        document.querySelector("#surname").value = ""
+        document.querySelector("#email").value = ""
+        document.querySelector("#phone").value = ""
+        document.querySelector("#pass").value = ""
+        document.querySelector("#DOB").value = ""
+      
+
+
+         window.location.href = "./login.html"
+
+       
+
+
+    }
+
+
+
+</script>
+<script type="module">
+    import { navbar, footer } from "../components/logedinNav.js"
+
+
+
+
+
+document.getElementById("navbar").innerHTML = navbar()
+
+// document.getElementById("footer").innerHTML = footer()
+ console.log(footerBottom())
+
+</script>

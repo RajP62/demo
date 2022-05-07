@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/navigation.css">
+    <style>
+        #navAjcentDiv {
+            width: 80%;
+            height: 150px;
+            /* border: 1px solid black; */
+            justify-content: center;
+            margin: auto;
+        }
+
+        #navAjcentDiv>h1 {
+            text-align: center;
+
+        }
+
+        #navAjcentDivFlex {
+
+            display: flex;
+            justify-content: center;
+            gap: 200px
+        }
+
+        #navAjcentDivFlex>a {
+            margin-top: 10px;
+            color: black;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        #navAjcentDivFlex>button {
+            width: 300px;
+            height: 40px;
+            background-color: #333333;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            border: none;
+            margin-bottom: 50px;
+        }
+
+        #navAjcentDiv>hr {
+            height: 5px;
+            border: none;
+            background-color: rgb(224, 219, 219);
+
+        }
+
+        /* Cart Display */
+
+        #CartItem {
+            margin-top: 100px;
+            width: 80%;
+
+            /* border: 1px solid black; */
+            justify-content: center;
+            margin: auto;
+        }
+
+        #rowOfCart>td>img {
+            height: 150px;
+            border: 1px solid green;
+        }
+
+        tr {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 20px;
+        }
+
+
+        #infoDiv {
+            width: 300px;
+            height: 150px;
+            /* border: 1px solid red; */
+
+            text-align: left;
+        }
+
+        #CountBtn {
+
+            display: flex;
+            gap: 10px
+        }
+
+        #increment {
+            background-color: rgb(68, 68, 128);
+            border: none;
+            width: 50px;
+            height: 50px;
+        }
+
+        #decrement {
+            background-color: rgb(117, 19, 121);
+            border: none;
+            width: 50px;
+            height: 50px;
+        }
+
+        #countShowDiv {
+            border: 1px solid gray;
+
+            text-align: center;
+            font-size: 25px;
+            font-weight: 100px;
+
+            width: 50px;
+            height: 50px;
+        }
+
+        #RemoveEl {
+            background-color: rgb(189, 19, 19);
+            border: none;
+            width: 150px;
+            height: 40px;
+        }
+
+        /* Total bill show */
+
+        #TotalBillTitle {
+            width: 80%;
+     height: 70px;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: space-evenly;
+        background-color: gray;
+            margin:auto ;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        #TotalBillShowDiv {
+            width: 80%;
+
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: space-evenly;
+
+            margin: auto;
+        }
+
+        #prices {
+            width: 200px;
+            height: auto;
+            /* border: 1px solid gray; */
+
+        }
+
+        #TitleS {
+            width: 200px;
+            height: auto;
+            /* border: 1px solid red; */
+            text-align: left;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <div id="navAjcentDiv">
+        <h1>SHOPPING BAG</h1>
+        <div id="navAjcentDivFlex">
+            <a sty href="./mensShopping .html">BACK TO SHOPPING</a>
+            <button class="goToOrder"> GO TO WISHLIST </button>
+            <button id="gotoforward"> GO TO SHIPPING</button>
+        </div>
+
+        <hr>
+    </div>
+    <div id="CartItem">
+    </div>
+    <div id="TotalBillTitle">
+        <h1>YOOX SHOOPING TOTAL</h1>
+    </div>
+
+    <div id="orderTotalDiv">
+        <div>
+
+        </div>
+
+        <div id="TotalBillShowDiv">
+            <div id="TitleS">
+                <h4>TOTAL FOR ITEMS</h4>
+
+                <h4>LOCAL TAXES AND DUTIES</h4>
+                <h4>SHIPPING</h4>
+                <h4>PAYMENT</h4>
+                <h2>ORDER TOTAL</h2>
+            </div>
+            <div>
+                <h4>-</h4>
+
+                <h4>-</h4>
+                <h4>-</h4>
+                <h4>-</h4>
+                <h2> -</h2>
+
+
+            </div>
+            <div id="prices">
+                <h4 id="totalItemsCharge"> </h4>
+                <h4> US$142,02</h4>
+                <h4> Us$26,00</h4>
+                <h4>FREE</h4>
+                <h2 id="totalBill"></h2>
+            </div>
+          
+        </div>
+       
+    </div>
+  
+    <div id="footer"></div>
+
+</body>
+
+</html>
+<script type="module">
+    import { navbar, footer } from "./components/navbar.js"
+    let navbar1 = document.getElementById("navbar")
+    navbar1.innerHTML = navbar();
+    let footer1 = document.getElementById("footer")
+    footer1.innerHTML = footer()
+
+
+</script>
+<script>
+    let cartArr = JSON.parse(localStorage.getItem("cartItem"));
+    console.log(cartArr)
+
+    for (let i = 0; i < cartArr.length; i++) {
+        if (cartArr[i].quantity == undefined) {
+            cartArr[i].quantity = 1;
+        }
+        localStorage.setItem("cartItem", JSON.stringify(cartArr))
+    }
+
+
+
+
+
+    let showCartData = document.getElementById("CartItem")
+
+
+
+
+    function displayData(cartArr) {
+    
+      
+
+
+        cartArr.map(function (el, index) {
+       
+            let row = document.createElement("tr")
+            row.setAttribute("id", "rowOfCart")
+
+            let imgTd = document.createElement("td")
+            let img = document.createElement("img")
+            img.src = el.image_url;
+
+
+            let info = document.createElement("td")
+            info.setAttribute("id", "info")
+
+            let infoDiv = document.createElement("div");
+            infoDiv.setAttribute("id", "infoDiv")
+
+            let name = document.createElement("h5")
+            name.innerText = el.name;
+
+            let type = document.createElement("p")
+            type.innerText = el.category;
+            let remark = document.createElement("h3")
+            remark.innerText = "LIMITED AVAILABILITY";
+
+            infoDiv.append(name, type, remark);
+            info.append(infoDiv)
+
+
+
+
+            let btnTd = document.createElement("td")
+            btnTd.setAttribute("id", "CountBtn")
+            let incre1 = document.createElement("button")
+            incre1.setAttribute("id", "increment")
+            incre1.innerText = "+"
+            let decre1 = document.createElement("button")
+            decre1.setAttribute("id", "decrement")
+            decre1.innerText = "-"
+            let countShowDiv = document.createElement("div")
+
+
+            countShowDiv.innerHTML = el.quantity;
+
+            countShowDiv.setAttribute("id", "countShowDiv")
+
+            let RemoveEl = document.createElement("button")
+            RemoveEl.setAttribute("id", "RemoveEl")
+
+            RemoveEl.innerText = "Remove From Cart"
+            RemoveEl.addEventListener("click", function () {
+                removeEl(el, index)
+            })
+
+            incre1.addEventListener("click", function () {
+                incqty(el)
+            })
+
+            decre1.addEventListener("click", function () {
+                decqty(el)
+            })
+
+            btnTd.append(decre1, incre1, countShowDiv, RemoveEl);
+           let priceTd = document.createElement("td")
+            let price = document.createElement("h2")
+            price.innerText = `$ ${el.price * el.quantity}`
+            priceTd.append(price)
+
+
+
+
+
+            let increDiv = document.createElement("div")
+
+            imgTd.append(img)
+            row.append(imgTd, info, btnTd, priceTd)
+            showCartData.append(row)
+
+        })
+
+    }
+
+    // increment Decrement
+    let count = 1;
+    let countShowDiv = document.getElementById("countShowDiv")
+
+
+    function incqty(elem) {
+
+        elem.quantity++
+        console.log(elem.quantity)
+        location.reload()
+        localStorage.setItem("cartItem", JSON.stringify(cartArr))
+        countShowDiv.innerHTML = ""
+        displayData(cartArr)
+
+        elem.quantity++
+        console.log(elem.quantity)
+        location.reload()
+        localStorage.setItem("cartItem", JSON.stringify(cartArr))
+        countShowDiv.innerHTML = ""
+        displayData(cartArr)
+    }
+
+    function decqty(elem) {
+        if (elem.quantity > 1)
+            elem.quantity--
+
+        location.reload()
+        localStorage.setItem("cartItem", JSON.stringify(cartArr))
+        countShowDiv.innerHTML = ""
+        displayData(cartArr)
+
+        console.log(elem.quantity)
+    }
+
+    displayData(cartArr)
+
+    function removeEl(el, index) {
+        var cartArr = JSON.parse(localStorage.getItem("cartItem"))
+
+        cartArr.splice(index, 1)
+        localStorage.setItem("cartItem", JSON.stringify(cartArr))
+        location.reload()
+
+        // console.log(qty)
+
+    }
+    
+
+    // showTotal
+    function showTotal() {
+        var total = cartArr.reduce(function (acc, elem, index, arr) {
+            return acc + (elem.price * elem.quantity)
+            // localStorage.setItem("cart", JSON.stringify(arr))
+            // document.querySelector("#container").innerHTML = ""
+            // data(arr)
+
+
+        }, 0)
+
+
+        
+       
+        document.getElementById("totalItemsCharge").innerText = "US$" + total+",00"
+        let tot=[]
+        tot.push(total+140+26)
+        tot.push(total)
+        localStorage.setItem("total", JSON.stringify(tot))
+        document.getElementById("totalBill").innerText = "US$" + (total+140 + 26)+",00"
+
+
+
+
+        // document.querySelector(".cart>div>p:nth-student(4)").innerHTML = "₹" + (total + 45)
+        // totalItemsCharge   totalBill
+    }
+    showTotal()
+
+
+
+
+
+    // redirection
+    let goToOrder = document.querySelector(".goToOrder")
+    goToOrder.addEventListener("click",()=>
+    {
+        window.location.href ="/wishlist.html"
+    })
+
+
+    let gotoforward =document.getElementById("gotoforward")
+    gotoforward.addEventListener("click",()=>
+    {
+        window.location.href ="/shipping.html"
+    })
+
+</script>

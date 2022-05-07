@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoppingPage</title>
+    <link rel="stylesheet" href="./styles/navigation.css">
+    <style>
+        #navAjcentDiv {
+            width: 80%;
+            height: 150px;
+            /* border: 1px solid black; */
+            justify-content: center;
+            margin: auto;
+        }
+
+        #navAjcentDiv>h1 {
+            text-align: center;
+
+        }
+
+        #navAjcentDivFlex {
+
+            display: flex;
+            justify-content: center;
+            gap: 200px
+        }
+
+        #navAjcentDivFlex>a {
+            margin-top: 10px;
+            color: black;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        #navAjcentDivFlex>button {
+            width: 300px;
+            height: 40px;
+            background-color: #333333;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            border: none;
+            margin-bottom: 50px;
+        }
+
+        .hrShipping {
+            height: 5px;
+            border: none;
+            width: 80%;
+            background-color: rgb(224, 219, 219);
+
+        }
+
+        #shippingleftBox {
+            width: 550px;
+            border: 1px solid rgb(224, 219, 219);
+            padding: 20px;
+            box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
+
+        }
+
+        #shippingleftBox>form>input {
+            width: 550px;
+            height: 40px;
+            margin-bottom: 20px;
+            border: none;
+            outline: none;
+            background-color: rgb(224, 219, 219);
+
+
+        }
+
+        #shippingleftBox>form>p {
+            margin-top: -15px;
+            text-align: right;
+            font-size: 15px;
+
+        }
+
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+
+            outline: 2px solid rgb(224, 219, 219);
+        }
+
+        #submitBtn {
+            width: 550px;
+            height: 50px;
+            border: none;
+            margin-top: 30px;
+            color: white;
+            background-color: #333333;
+            font-weight: bold;
+            font-size: 15px;
+
+        }
+
+        /* shipping right Box */
+        #shippingRightBox {
+            width: 300px;
+            height: 450px;
+            border: 1px solid rgb(224, 219, 219);
+            box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
+            margin: 2px;
+            padding: 20px;
+
+        }
+
+        #shippingRightBox>div>h3 {
+            margin-bottom: -15px;
+
+        }
+
+        #shippingRightBox>div>h4 {
+            margin-bottom: 40px;
+
+        }
+
+        #mainDivFlex {
+            width: 80%;
+            margin: auto;
+
+            display: flex;
+            justify-content: space-between;
+
+            box-shadow: 20px;
+        }
+
+        /* }Footer */
+        #footer {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar"></div>
+
+    <!-- end navbar -->
+    <div id="navAjcentDiv">
+        <hr class="hrShipping">
+        <h1>SHIPPING</h1>
+        <div id="navAjcentDivFlex">
+            <a sty href="./mensShopping .html">BACK TO SHOPPING</a>
+            <button class="goToOrder">SHIP TO THIS ADDRESS </button>
+        </div>
+
+    </div>
+
+    <!-- end  navbar adjecent div  -->
+
+    <hr class="hrShipping">
+
+    <div id="mainDivFlex">
+
+
+
+        <div id="shippingleftBox">
+            <form action="" id="form">
+                <input id="firstName" type="text" placeholder="FIRST NAME">
+                <input id="lastName" type="text" placeholder="LAST NAME">
+                <input id="cORo" type="text" placeholder="C/O">
+                <p>OPTIONAL</p>
+                <input id="phone" type="text" placeholder="TELEPHONE">
+                <input id="streetName" type="text" placeholder="STREET NAME AND NUMBER">
+                <input id="zipCode" type="text" placeholder="ZIP CODE">
+                <input id="city" type="text" placeholder="CITY">
+                <input id="state" type="text" placeholder="STATE/PROVIENCE">
+                <input id="countris" type="text" placeholder="COUNTRY">
+                <label for=""> <input class="checkbox" type="checkbox">Save this address in MYOOX</label><br><br>
+                <label for=""><input class="checkbox" type="checkbox">Set as default</label>
+                <!-- <input id="submitBtn" type="submit" onclick="submitData()"> -->
+                <button  id="submitBtn" type="button"  >SHIP TO THIS ADDRESS</button>
+            </form>
+
+
+        </div>
+        <div id="shippingRightBox">
+            <h2 style="text-align: center;">Your Order</h2>
+            <div>
+                <h3>TOTAL FOR ITEMS -</h3>
+                <h4 id="totalBillForItem"></h4>
+            </div>
+            <div>
+                <h3>LOCAL TAXES AND DUTIES -</h3>
+                <h4>US$124,00</h4>
+            </div>
+            <div>
+                <h3>SHIPPING -</h3>
+                <h4>US$26,00</h4>
+            </div>
+            <div>
+                <h3> PAYMENT -</h3>
+                <h4>FREE</h4>
+            </div>
+            <div>
+                <h3> ORDER TOTAL -</h3>
+                <h3 id="totalBill"></h3>
+            </div>
+
+        </div>
+
+
+    </div>
+    <div id="footer"></div>
+</body>
+
+
+</html>
+<script type="module">
+    import { navbar, footer } from "./components/navbar.js"
+    let navbar1 = document.getElementById("navbar")
+    navbar1.innerHTML = navbar();
+    let footer1 = document.getElementById("footer")
+    footer1.innerHTML = footer()
+
+
+
+</script>
+<script>
+    var billList = JSON.parse(localStorage.getItem("total"))
+    console.log('billList:', billList)
+    let totalBill = document.getElementById("totalBill")
+    totalBill.innerText = `US$${billList[0]},00`
+    let totalBillForItem = document.getElementById("totalBillForItem")
+    totalBillForItem.innerText = `US$${billList[1]},00`
+
+
+
+
+
+
+
+
+// redirection
+    let goToOrder = document.querySelector(".goToOrder")
+    goToOrder.addEventListener("click",()=>
+    {
+        window.location.href ="./payment.html"
+    })
+
+    let submitBtn = document.getElementById("submitBtn")
+    submitBtn.addEventListener("click",()=>{
+        window.location.href ="./payment.html"
+    })
+
+</script>

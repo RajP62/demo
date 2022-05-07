@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/navigation.css">
+    <link rel="stylesheet" href="./styles/mensShopping.css">
+    <link rel="stylesheet" href="./styles/home.css">
+    <style>
+            #navAjcentDiv {
+            width: 80%;
+            height: 150px;
+            /* border: 1px solid black; */
+            justify-content: center;
+            margin: auto;
+        }
+
+        #navAjcentDiv>h1 {
+            text-align: center;
+
+        }
+
+        #navAjcentDivFlex {
+
+            display: flex;
+            justify-content: center;
+            gap: 200px
+        }
+
+        #navAjcentDivFlex>a {
+            margin-top: 10px;
+            color: black;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        #navAjcentDivFlex>button {
+            width: 300px;
+            height: 40px;
+            background-color: #333333;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            border: none;
+            margin-bottom: 50px;
+        }
+
+        .hrShipping {
+            height: 5px;
+            border: none;
+            width: 80%;
+            background-color: rgb(224, 219, 219);
+
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        
+        
+    </div>
+    <div id="navAjcentDiv">
+        <hr class="hrShipping">
+        <h1>WISHLIST</h1>
+        <div id="navAjcentDivFlex">
+            <a sty href="./mensShopping .html">BACK TO SHOPPING</a>
+            <button class="goToOrder">GO TO CART</button>
+        </div>
+
+    </div>
+
+
+    <div id="container"></div>
+    
+
+    <div id="footer"></div>
+</body>
+</html>
+<script type="module">
+import { navbar, footer } from "./components/navbar.js"
+    let navbar1 = document.getElementById("navbar")
+    navbar1.innerHTML = navbar();
+    let footer1 = document.getElementById("footer")
+    footer1.innerHTML = footer()
+
+
+</script>
+<script>
+    let goToOrder = document.querySelector(".goToOrder")
+    goToOrder.addEventListener("click",()=>
+    {
+        window.location.href ="/cart.html"
+    })
+</script>
+<script>
+
+let wishlistArr = JSON.parse(localStorage.getItem("wishItem"))||[]
+console.log('wishlistArr:', wishlistArr)
+
+
+displayData(wishlistArr);
+
+
+
+function displayData(mensData){
+  document.querySelector("#container").innerHTML = "";
+mensData.map(function (data) {
+  //main div of product -->
+  var div = document.createElement("div");
+
+  //image -->
+  var image = document.createElement("img");
+  image.setAttribute("src", data.image_url);
+
+  //brand-name -->
+  var brand = document.createElement("p");
+  brand.textContent = data.brand;
+
+  // name -->
+  var name = document.createElement("p");
+  name.textContent = data.name;
+
+  //creating a div - contain symPrice & strikedoffprice -->
+  var div2 = document.createElement("div");
+  div2.setAttribute("id", "div2");
+  //creating a small symbol price div which contain rupee symbol and price of product-->
+  var symPrice = document.createElement("div");
+  symPrice.setAttribute("id", "symPrice");
+
+  var symbol = document.createElement("p");
+  symbol.textContent = data.Symbol;
+
+  var price = document.createElement("p");
+  price.textContent = data.price;
+
+  symPrice.append( price);
+
+  var strikPri = document.createElement("p");
+  strikPri.textContent = data.strikedoffprice;
+  strikPri.style.textDecoration = "line-through";
+  strikPri.style.color = "grey";
+
+
+  div2.append(symPrice, strikPri);
+
+  //   created a div for "add to cart button" && "wishlist button" -->
+  var btnDiv = document.createElement("div");
+  btnDiv.setAttribute("id" , "btnDiv");
+
+  
+
+  var wishBtn = document.createElement("button");
+  wishBtn.textContent = "Wishlist";
+  wishBtn.addEventListener("click" , function(){
+    wishlist(data)
+  })
+
+  btnDiv.append(wishBtn);
+
+  //appending-->
+  div.append(image, brand, name, div2,btnDiv);
+
+  document.querySelector("#container").append(div);
+});
+}
+
+
+function wishlist(data) {
+    let cartArr = JSON.parse(localStorage.getItem("cartItem"))||[]
+    console.log( "cartArr" ,cartArr);
+    cartArr.push(data);
+    console.log( "cartArr" ,cartArr);
+    localStorage.setItem("cartItem", JSON.stringify(cartArr));
+  }
+
+
+</script>
